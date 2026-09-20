@@ -1,6 +1,36 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
+int isInteresting(const char *text)
+{
+    const char *keywords[] = 
+    {
+        "password",
+        "passwd",
+        "shadow",
+        "admin",
+        "root",
+        "telnet",
+        "dropbear",
+        "busybox",
+        "ssh",
+        "token",
+        "key"
+    };
 
+    int keywordCount = sizeof(keywords) / sizeof(keywords[0]);
+
+    for (int i = 0; i < keywordCount; i++)
+    {
+        if (strstr(text, keywords[i]) != NULL)
+        {
+            return 1; 
+        }
+        
+    }
+    
+    return 0; 
+}
 
 void detectSignature(unsigned char buffer[], size_t bytesRead)
 {
@@ -59,6 +89,12 @@ void extractStrings(FILE *file)
                 {
                     current[length] = '\0';
                     printf("%s\n", current);
+
+                    if (isInteresting(current))
+                    {
+                        printf("Interesting string is found: %s\n", current);
+                    }
+                    
                 }
                 
                 length = 0;
@@ -72,6 +108,12 @@ void extractStrings(FILE *file)
     {
         current[length] = '\0';
         printf("%s\n", current);
+
+        if (isInteresting(current))
+        {
+            printf("Interesting string is found: %s\n", current);
+        }
+        
     }
     
     
