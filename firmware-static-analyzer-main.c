@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+
+//to-do: add more information to "interesting string output" so it becomes more informative
+//which keyword matched functionality
+//offset tracking functionality
+
+
+
 int isInteresting(const char *text)
 {
     const char *keywords[] = 
@@ -118,7 +125,6 @@ void extractStrings(FILE *file)
     
     
 }
-
 
 int main(int argc, char *argv[])
 {
