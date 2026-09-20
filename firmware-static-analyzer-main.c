@@ -15,6 +15,15 @@ int main(int argc, char *argv[])
         return 1;
     }
     printf("Opened: %s\n", argv[1]);
+    
+    fseek(file, 0, SEEK_END);
+
+    long fileSize = ftell(file);
+
+    fseek(file, 0, SEEK_SET);
+
+    printf("File size: %ld bytes\n", fileSize);
+    
     fclose(file);
 
     return 0;
