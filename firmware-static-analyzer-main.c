@@ -22,7 +22,20 @@ int main(int argc, char *argv[])
 
     fseek(file, 0, SEEK_SET);
 
-    printf("File size: %ld bytes\n", fileSize);
+    unsigned char buffer[32];
+
+    size_t bytesRead = fread(buffer, 1, sizeof(buffer), file);
+    
+    printf("First %zu bytes:\n", bytesRead);
+    
+    for (size_t i = 0; i < bytesRead; i++)
+    {
+        printf("%02X ", buffer[i]);
+    }
+    
+    printf("\n");
+
+    //printf("File size: %ld bytes\n", fileSize);
     
     fclose(file);
 
