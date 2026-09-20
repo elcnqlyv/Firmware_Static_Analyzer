@@ -74,20 +74,7 @@ void extractStrings(FILE *file)
         printf("%s\n", current);
     }
     
-    //char printedText[] = {};
-    //size_t bytesRead = fread(text, 1, sizeof(text), file);
-
-    //printf("First %zu bytes:\n", bytesRead);
-
-    //for (size_t i = 0; i < bytesRead; i++)
-    //{
-    //    if (isprint((unsigned char)text[i]))
-    //    {
-    //        strcat(printedText, bytesRead);
-    //    }
-    //    
-    //}
-    //printf("Complete string is: %s\n", printedText);
+    
 }
 
 
