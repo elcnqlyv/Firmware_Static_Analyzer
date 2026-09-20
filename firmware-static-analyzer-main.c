@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-#include <string.h>
+
 
 void detectSignature(unsigned char buffer[], size_t bytesRead)
 {
